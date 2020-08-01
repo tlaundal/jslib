@@ -75,6 +75,7 @@ export class SsoComponent {
             numbers: true,
             special: false,
         };
+
         let codeChallenge = this.codeChallenge;
         let state = this.state;
         if (codeChallenge == null) {
