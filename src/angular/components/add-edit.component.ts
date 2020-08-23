@@ -269,7 +269,7 @@ export class AddEditComponent implements OnInit {
         return false;
     }
 
-    addUri() {
+    addUri(uri?: string) {
         if (this.cipher.type !== CipherType.Login) {
             return;
         }
@@ -278,7 +278,11 @@ export class AddEditComponent implements OnInit {
             this.cipher.login.uris = [];
         }
 
-        this.cipher.login.uris.push(new LoginUriView());
+        const uriView = new LoginUriView();
+        if (uri) {
+            uriView.uri = uri;
+        }
+        this.cipher.login.uris.push(uriView);
     }
 
     removeUri(uri: LoginUriView) {
